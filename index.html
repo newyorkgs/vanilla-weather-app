@@ -48,16 +48,14 @@
             <!--section 2: main temp-->
             <div class="row main-temp">
               <div class="col-6">
-                <strong id="temperature"></strong><span class="units"> °F</span>
-
-
-
-                <ul class="middle-information">
-                  <!--<li class="middle-temp">12°</li>-->
-                  <li class="currentTime">
-                    Friday 05:00
-                  </li>
-                </ul>
+                <div class="float-left">
+                  <strong id="temperature"></strong><span class="units"> °F</span>
+                  <ul class="middle-information timeNow">
+                    <!--<li class="middle-temp">12°</li>-->
+                    <li>Last updated at <span id="currentTime"></span>
+                    </li>
+                  </ul>
+                </div>
               </div>
               <div class="col-6">
                 <ul class="middle-information middle-descr">

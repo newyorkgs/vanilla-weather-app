@@ -1,3 +1,32 @@
+function formatDate(timestamp) {
+    //calculate the date
+    let date = new Date(timestamp);
+
+    let hours = date.getHours();
+
+    if (hours < 10) {
+        hours = `0${hours}`;
+    }
+
+    let minutes = date.getMinutes();
+
+    if (minutes < 10) {
+        minutes = `0${minutes}`;
+    }
+    let days = [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Sunday',
+        'Sunday',
+    ];
+
+    let day = days[date.getDay()];
+    return `${day} ${hours}:${minutes}`;
+}
+
 function displayTemperature(response) {
     console.log(response.data);
     let header = document.querySelector('#cityHeader');
@@ -17,6 +46,9 @@ function displayTemperature(response) {
 
     let wind = document.querySelector('#wind');
     wind.innerHTML = Math.round(response.data.wind.speed);
+
+    let dateElement = document.querySelector('#currentTime');
+    dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 let apiKey = '5f472b7acba333cd8a035ea85a0d4d4c';
