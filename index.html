@@ -1,151 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=>, initial-scale=1.0" />
-        <link rel="stylesheet" href="src/style.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-            crossorigin="anonymous"
-        />
 
-        <title>Document</title>
-    </head>
-    <body>
-        <div class="container">
-            <!--top nav bar-->
-            <div class="topnav">
-                <button class="btn"><i class="fa fa-home"></i></button>
-                <button class="btn"><i class="fa fa-bars"></i></button>
-                <!-- <a href="#city">News</a> -->
-                <span class="cityNav">New York</span>
-                <!--search bar-->
-                <div class="search-container">
-                    <form action="/action_page.php">
-                        <input
-                            type="text"
-                            placeholder="Search.."
-                            name="search"
-                        />
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="src/style.css" />
+
+  <title>vanilla weather app</title>
+</head>
+
+<body>
+  <div class="container">
+    <!--top nav bar-->
+    <div class="weather-app-wrap">
+      <div class="weather-container">
+        <div class="background-img">
+          <div class="topnav">
+            <button class="btn">
+              <i class="fa fa-home"></i>
+            </button>
+            <button class="btn">
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <!--search bar-->
+            <div class="search-container">
+              <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search" />
+                <button type="submit">Submit</button>
+              </form>
             </div>
+          </div>
+
+          <!--city heading-->
+          <div class="middle-text">
+            <h1 id="cityHeader">
+            </h1>
+            <h2 id="countryHeader">USA</h2>
+
 
             <!--section 2: main temp-->
             <div class="row main-temp">
-                <div class="col-6">
-                    <ul class="middle-information">
-                        <li class="middle-temp">12°</li>
-                        <li class="currentTime">Friday 05:00</li>
-                    </ul>
-                </div>
-                <div class="col-6">
-                    <ul class="middle-information">
-                        <li class="description">Partly Cloudy</li>
-                        <li class="wind">7 mph</li>
-                        <li class="humidity">73%</li>
-                    </ul>
-                </div>
-            </div>
+              <div class="col-6">
+                <strong id="temperature"></strong><span class="units"> °F</span>
 
-            <!-- white bottom: weekly forecast -->
-            <div class="weekly">
-                <ul class="weeklyForecast">
-                    <li class="weekly">
-                        <h6>Monday</h6>
-                        <img
-                            class="wafer-img-native wafer-img-loaded"
-                            data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
-                            src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
-                            width="28"
-                            height="28"
-                            alt="Clear"
-                            loading="lazy"
-                        />
-                        <div class="day-temp">
-                            65° <span class="degrees">42°</span>
-                        </div>
-                    </li>
-                    <li class="weekly">
-                        <h6>Tuesday</h6>
-                        <img
-                            class="wafer-img-native wafer-img-loaded"
-                            data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
-                            src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
-                            width="28"
-                            height="28"
-                            alt="Clear"
-                            loading="lazy"
-                        />
-                        <div class="day-temp">
-                            60° <span class="degrees">37°</span>
-                        </div>
-                    </li>
-                    <li class="weekly">
-                        <h6>Wednesday</h6>
-                        <img
-                            class="wafer-img-native wafer-img-loaded"
-                            data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
-                            src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
-                            width="28"
-                            height="28"
-                            alt="Clear"
-                            loading="lazy"
-                        />
-                        <div class="day-temp">
-                            58° <span class="degrees">32°</span>
-                        </div>
-                    </li>
-                    <li class="weekly">
-                        <h6>Thursday</h6>
-                        <img
-                            class="wafer-img-native wafer-img-loaded"
-                            data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
-                            src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
-                            width="28"
-                            height="28"
-                            alt="Clear"
-                            loading="lazy"
-                        />
-                        <div class="day-temp">
-                            53° <span class="degrees">30°</span>
-                        </div>
-                    </li>
-                    <li class="weekly">
-                        <h6>Friday</h6>
-                        <img
-                            class="wafer-img-native wafer-img-loaded"
-                            data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
-                            src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
-                            width="28"
-                            height="28"
-                            alt="Clear"
-                            loading="lazy"
-                        />
-                        <div class="day-temp">
-                            50° <span class="degrees">28°</span>
-                        </div>
-                    </li>
+
+
+                <ul class="middle-information">
+                  <!--<li class="middle-temp">12°</li>-->
+                  <li class="currentTime">
+                    Friday 05:00
+                  </li>
                 </ul>
+              </div>
+              <div class="col-6">
+                <ul class="middle-information middle-descr">
+                  <li id="description"></li>
+                  <li><span id="wind"></span> mph</li>
+                  <li> <span id="humidity"></span> %</li>
+                </ul>
+              </div>
             </div>
-            <br />
-            <small class="sourceCode"
-                ><a
-                    href="https://github.com/newyorkgs/weather-app.git"
-                    target="_blank"
-                    >Open Source Code</a
-                >
-                by Gabrielle Seri</small
-            >
+            <div class="quote">
+              <i>long whimsical and funny quote here!</i>
+            </div>
+          </div>
         </div>
-        <script src="src/app.js"></script>
-    </body>
+        <!-- white bottom: weekly forecast -->
+        <div class="white-weekly">
+          <ul class="weeklyForecast">
+            <li class="weekly">
+              <h3 class="day-to-day">Monday</h3>
+              <img class="wafer-img-native wafer-img-loaded"
+                data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
+                src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png" width="28" height="28"
+                alt="Clear" loading="lazy" />
+              <div class="day-temp">
+                65° <span class="degrees">42°</span>
+              </div>
+            </li>
+            <li class="weekly">
+              <h3 class="day-to-day">Tuesday</h3>
+              <img class="wafer-img-native wafer-img-loaded"
+                data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
+                src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png" width="28" height="28"
+                alt="Clear" loading="lazy" />
+              <div class="day-temp">
+                60° <span class="degrees">37°</span>
+              </div>
+            </li>
+            <li class="weekly">
+              <h3 class="day-to-day">Wednesday</h3>
+              <img class="wafer-img-native wafer-img-loaded"
+                data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
+                src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png" width="28" height="28"
+                alt="Clear" loading="lazy" />
+              <div class="day-temp">
+                58° <span class="degrees">32°</span>
+              </div>
+            </li>
+            <li class="weekly">
+              <h3 class="day-to-day">Thursday</h3>
+              <img class="wafer-img-native wafer-img-loaded"
+                data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
+                src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png" width="28" height="28"
+                alt="Clear" loading="lazy" />
+              <div class="day-temp">
+                53° <span class="degrees">30°</span>
+              </div>
+            </li>
+            <li class="weekly">
+              <h3 class="day-to-day">Friday</h3>
+              <img class="wafer-img-native wafer-img-loaded"
+                data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
+                src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png" width="28" height="28"
+                alt="Clear" loading="lazy" />
+              <div class="day-temp">
+                50° <span class="degrees">28°</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <small class="sourceCode"><a href="https://github.com/newyorkgs/weather-app.git" target="_blank">Open Source
+          Code</a>
+        by Gabrielle Seri</small>
+    </div>
+  </div>
+  <script src="src/app.js"></script>
+</body>
+
 </html>

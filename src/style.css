@@ -1,20 +1,23 @@
-body {
-    margin: 0;
-    width: 100%;
-    background-image: url('./mtn-weather-app.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-/*nav bar*/
-.cityNav {
-    padding: 0 16px;
+.weather-app-wrap {
+    max-width: 500px;
+    margin: 60px auto;
 }
 
+.weather-container {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 38em;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+/*nav bar*/
 .topnav {
     overflow: hidden;
     background-color: #e9e9e9;
+    line-height: -40px;
 }
+
 .topnav button {
     float: left;
     display: block;
@@ -77,6 +80,7 @@ body {
     .topnav .search-container {
         float: none;
     }
+
     .topnav a,
     .topnav input[type='text'],
     .topnav .search-container button {
@@ -87,33 +91,113 @@ body {
         margin: 0;
         padding: 14px;
     }
+
     .topnav input[type='text'] {
         border: 1px solid #ccc;
     }
 }
 
+/*background img*/
+.background-img {
+    background: url('thunder.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    object-fit: cover;
+}
+
+.middle-text {
+    color: white;
+}
+
+/*city nav*/
+#cityHeader {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+#countryHeader {
+    text-align: center;
+    margin: 10px 30px;
+    font-weight: 600;
+    font-size: 20px;
+
+}
+
 /*main-temp*/
 .main-temp {
-    margin-top: 50px;
+    margin: 30px 50px;
     padding: 0;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    line-height: 24px;
+    align-items: center;
+    font-weight: 700;
 }
-.middle-temp {
+
+.main-temp .units {
+    position: relative;
+    font-size: 16px;
+    top: -34px;
+}
+
+/*.middle-temp {
     font-size: 7rem;
-}
+}*/
 .middle-information {
     display: inline;
     list-style: none;
+    margin-top: 20px;
+}
+
+.middle-descr li {
+    padding: 8px 0;
+}
+
+#temperature {
+    font-size: 60px;
+    font-weight: 300;
 }
 
 /*weekly forecast*/
+.white-weekly {
+    margin: 35px 30px 40px 30px;
+}
+
+/*quote section*/
+.quote {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
 .weeklyForecast {
     list-style: none;
-    padding: 0;
     text-align: center;
-    margin-top: 150px;
+    padding: 0;
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
 }
+
+.day-to-day {
+    font-size: 15px;
+}
+
 .weekly {
     display: inline-block;
-    margin: 0 25px;
+    margin: 0 10px;
+}
+
+.sourceCode {
+    margin: 5px 0;
+    font-size: 40%;
 }
