@@ -49,10 +49,27 @@ function displayTemperature(response) {
 
     let dateElement = document.querySelector('#currentTime');
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+    let iconMonday = document.querySelector('#iconMonday');
+    iconMonday.setAttribute(
+        'src',
+        `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
 }
 
-let apiKey = '5f472b7acba333cd8a035ea85a0d4d4c';
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Columbus&appid=${apiKey}&units=imperial`;
+function search(city) {
+    let apiKey = '5f472b7acba333cd8a035ea85a0d4d4c';
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(displayTemperature);
+}
 
-axios.get(apiUrl).then(displayTemperature);
-console.log(apiUrl);
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector('#city-input');
+    search(cityInputElement.value);
+}
+
+search('New York');
+
+let form = document.querySelector('#search-form');
+form.addEventListener('submit', handleSubmit);

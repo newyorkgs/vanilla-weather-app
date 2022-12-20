@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="src/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
@@ -17,26 +16,37 @@
 
 <body>
   <div class="container">
-    <!--top nav bar-->
+
     <div class="weather-app-wrap">
       <div class="weather-container">
         <div class="background-img">
-          <div class="topnav">
-            <button class="btn">
-              <i class="fa fa-home"></i>
-            </button>
-            <button class="btn">
-              <i class="fa fa-bars"></i>
-            </button>
 
-            <!--search bar-->
-            <div class="search-container">
-              <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search" />
+          <!--search bar-->
+          <div class="form-container">
+            <form id="search-form" class="mb-5">
+              <div class="row search-bar">
+                <div class="col-2"><button class="btn"><i class="fa fa-home"></i></button></div>
+                <div class="col-7">
+                  <input type="search" placeholder="Type a city.." class="form-control" id="city-input"
+                    autocomplete="off" />
+                </div>
+                <div class="col-3">
+                  <input type="submit" value="Search" class="btn btn-primary" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <!--search bar-->
+          <!-- <div class="search-container">
+              <form id="search-form">
+                <input type="text" placeholder="Search.." id="cityInput" />
                 <button type="submit">Submit</button>
               </form>
             </div>
-          </div>
+          </div>-->
+
+
+
 
           <!--city heading-->
           <div class="middle-text">
@@ -70,6 +80,7 @@
             </div>
           </div>
         </div>
+
         <!-- white bottom: weekly forecast -->
         <div class="white-weekly">
           <ul class="weeklyForecast">
@@ -78,7 +89,7 @@
               <img class="wafer-img-native wafer-img-loaded"
                 data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
                 src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png" width="28" height="28"
-                alt="Clear" loading="lazy" />
+                alt="Clear" loading="lazy" id="iconMonday" />
               <div class="day-temp">
                 65° <span class="degrees">42°</span>
               </div>
@@ -126,10 +137,12 @@
           </ul>
         </div>
       </div>
-      <small class="sourceCode"><a href="https://github.com/newyorkgs/weather-app.git" target="_blank">Open Source
-          Code</a>
-        by Gabrielle Seri</small>
+
     </div>
+    <small class="sourceCode"><a href="https://github.com/newyorkgs/weather-app.git" target="_blank">Open Source
+        Code</a>
+      by Gabrielle Seri</small>
+  </div>
   </div>
   <script src="src/app.js"></script>
 </body>
