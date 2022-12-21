@@ -156,3 +156,13 @@
     margin: 5px 0;
     font-size: 40%;
 }
+
+.weather-temperature .active {
+    color: black;
+}
+
+a:hover {
+
+    text-decoration: none;
+    cursor: default;
+}

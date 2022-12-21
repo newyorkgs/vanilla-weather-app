@@ -37,14 +37,6 @@
             </form>
           </div>
           <!--search bar-->
-          <!-- <div class="search-container">
-              <form id="search-form">
-                <input type="text" placeholder="Search.." id="cityInput" />
-                <button type="submit">Submit</button>
-              </form>
-            </div>
-          </div>-->
-
 
 
 
@@ -58,8 +50,9 @@
             <!--section 2: main temp-->
             <div class="row main-temp">
               <div class="col-6">
-                <div class="float-left">
-                  <strong id="temperature"></strong><span class="units"> °F</span>
+                <div class="weather-temperature">
+                  <strong id="temperature"></strong><span class="units">
+                    <a href="#" id="farenheit-link" class="active"> °F</a> | <a href="#" id="celsius-link">°C</a></span>
                   <ul class="middle-information timeNow">
                     <!--<li class="middle-temp">12°</li>-->
                     <li>Last updated at <span id="currentTime"></span>

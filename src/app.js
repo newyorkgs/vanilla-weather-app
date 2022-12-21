@@ -35,8 +35,10 @@ function displayTemperature(response) {
     let countryHead = document.querySelector('#countryHeader');
     countryHead.innerHTML = response.data.sys.country;
 
+    farenheitTemperature = response.data.main.temp;
+
     let temperature = document.querySelector('#temperature');
-    temperature.innerHTML = Math.round(response.data.main.temp);
+    temperature.innerHTML = Math.round(farenheitTemperature);
 
     let description = document.querySelector('#description');
     description.innerHTML = response.data.weather[0].main;
@@ -68,8 +70,30 @@ function handleSubmit(event) {
     let cityInputElement = document.querySelector('#city-input');
     search(cityInputElement.value);
 }
+function displayCelsiusTemp(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector('#temperature');
+    // remove the active class from the f link and add active to c link
+    celsiusLink.classList.add('active');
+    farenheitLink.classList.remove('active');
+    let celsiusTemperature = ((farenheitTemperature - 32) * 5) / 9;
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+function displayFarenheitTemp(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector('#temperature');
+    temperatureElement.innerHTML = Math.round(farenheitTemperature);
+}
 
-search('New York');
+let farenheitTemperature = null;
 
 let form = document.querySelector('#search-form');
 form.addEventListener('submit', handleSubmit);
+
+let celsiusLink = document.querySelector('#celsius-link');
+celsiusLink.addEventListener('click', displayCelsiusTemp);
+
+let farenheitLink = document.querySelector('#farenheit-link');
+farenheitLink.addEventListener('click', displayFarenheitTemp);
+
+search('New York');
