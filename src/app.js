@@ -59,6 +59,42 @@ function displayTemperature(response) {
     );
 }
 
+function displayForecast() {
+    let forecastElement = document.querySelector('.white-weekly');
+
+    let days = [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+    ];
+
+    let forecastHTML = '<div class="row weeklyForecast">';
+
+    days.forEach(function (day) {
+        forecastHTML =
+            forecastHTML +
+            `
+              <div class="col-2 daily">
+              <div class="weeklyForecast-date">${day}</div>
+              <img class="wafer-img-native wafer-img-loaded"
+                data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
+                src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png" width="28" height="28"
+                alt="Clear" loading="lazy" id="iconMonday" />
+              <div class="forecast-temp">
+                <span class="degrees max">5°</span> <span class="degrees min">42°</span>
+              </div>
+            </div>
+            `;
+    });
+
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+    console.log(forecastHTML);
+}
+
 function search(city) {
     let apiKey = '5f472b7acba333cd8a035ea85a0d4d4c';
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
@@ -97,3 +133,4 @@ let farenheitLink = document.querySelector('#farenheit-link');
 farenheitLink.addEventListener('click', displayFarenheitTemp);
 
 search('New York');
+displayForecast();

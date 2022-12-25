@@ -1,14 +1,19 @@
+.container {
+    max-height: 530px;
+}
+
 .weather-app-wrap {
-    max-width: 600px;
+    max-width: 425px;
     margin: 60px auto;
 }
 
 .weather-container {
     border: 1px solid black;
     border-radius: 5px;
-    height: 38em;
+    height: 33em;
     box-sizing: border-box;
     flex-wrap: wrap;
+
 }
 
 /*nav bar*/
@@ -19,16 +24,17 @@
     /* background: url('thunder.jpg');*/
     background-repeat: no-repeat;
     background-size: cover;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+
+    height: 80%;
     object-fit: cover;
     background-color: lightblue;
 }
 
 .form-container {
     background-color: white;
-
 }
+
+
 
 .search-bar {
     width: 100%;
@@ -49,6 +55,7 @@
 
 .middle-text {
     color: white;
+
 }
 
 /*city nav*/
@@ -74,7 +81,7 @@
 
 /*main-temp*/
 .main-temp {
-    margin: 30px 50px;
+    /* margin: 10px 30px;
     padding: 0;
     text-align: center;
     display: flex;
@@ -83,30 +90,32 @@
     flex-wrap: wrap;
     line-height: 24px;
     align-items: center;
+    width: 450px;*/
 
-
+    text-align: center;
+    margin: auto;
+    max-width: 350px;
 }
+
 
 .main-temp .units {
     position: relative;
-    font-size: 16px;
+    font-size: 10px;
     top: -34px;
 }
 
-/*.middle-temp {
-    font-size: 7rem;
-}*/
 .middle-information {
     display: inline;
     list-style: none;
-    margin-top: 20px;
+    font-size: 12px;
 }
+
+.fa-wind {}
 
 .timeNow {
 
     line-height: 50px;
     font-size: 10px;
-
 }
 
 .middle-descr li {
@@ -120,40 +129,39 @@
     width: 64px;
 }
 
-/*weekly forecast*/
-.white-weekly {
-    margin: 35px 30px 40px 30px;
-}
-
 /*quote section*/
 .quote {
     text-align: center;
-    margin-top: 50px;
     padding-top: 30px;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 10px;
+}
+
+/*weekly forecast*/
+.white-weekly {
+    text-align: center;
+    margin-top: 25px;
 }
 
 .weeklyForecast {
-    list-style: none;
-    text-align: center;
+    max-width: 400px;
+    margin: auto;
+}
+
+.weeklyForecast-date {
+    font-size: 12px;
+}
+
+.daily {
     padding: 0;
-    font-size: 10px;
-    display: flex;
-    justify-content: space-between;
 }
 
-.day-to-day {
-    font-size: 15px;
-}
-
-.weekly {
-    display: inline-block;
-    margin: 0 10px;
+.forecast-temp {
+    font-size: 9px;
 }
 
 .sourceCode {
-    margin: 5px 0;
+    margin: 5px;
     font-size: 40%;
 }
 
