@@ -1,5 +1,4 @@
 function formatDate(timestamp) {
-    //calculate the date
     let date = new Date(timestamp);
 
     let hours = date.getHours();
@@ -7,12 +6,11 @@ function formatDate(timestamp) {
     if (hours < 10) {
         hours = `0${hours}`;
     }
-
     let minutes = date.getMinutes();
-
     if (minutes < 10) {
         minutes = `0${minutes}`;
     }
+
     let days = [
         'Sunday',
         'Monday',
@@ -22,9 +20,63 @@ function formatDate(timestamp) {
         'Sunday',
         'Sunday',
     ];
-
     let day = days[date.getDay()];
     return `${day} ${hours}:${minutes}`;
+}
+
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+    return days[day];
+}
+
+function displayForecast(response) {
+    console.log(response.data.daily);
+    let forecast = response.data.daily;
+
+    let forecastElement = document.querySelector('.white-weekly');
+
+    let forecastHTML = '<div class="row weeklyForecast">';
+    forecast.forEach(function (forecastDay, index) {
+        if (index < 6) {
+            forecastHTML =
+                forecastHTML +
+                `
+              <div class="col-2 daily">
+              <div class="weeklyForecast-date">${formatDay(
+                  forecastDay.dt
+              )}</div>
+              <img
+          src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="42"
+        />
+              <div class="forecast-temp">
+                <span class="degrees max">${Math.round(
+                    forecastDay.temp.max
+                )}°</span> <span class="degrees min">${Math.round(
+                    forecastDay.temp.min
+                )}°</span>
+              </div>
+            </div>
+            `;
+        }
+    });
+
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+    console.log(forecastHTML);
+}
+
+function getForecast(coordinates) {
+    console.log(coordinates);
+    let apiKey = '5f472b7acba333cd8a035ea85a0d4d4c';
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response) {
@@ -52,47 +104,14 @@ function displayTemperature(response) {
     let dateElement = document.querySelector('#currentTime');
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
-    let iconMonday = document.querySelector('#iconMonday');
-    iconMonday.setAttribute(
+    let iconElement = document.querySelector('#icon');
+    iconElement.setAttribute(
         'src',
         `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
-}
+    iconElement.setAttribute('alt', response.data.weather[0].description);
 
-function displayForecast() {
-    let forecastElement = document.querySelector('.white-weekly');
-
-    let days = [
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-    ];
-
-    let forecastHTML = '<div class="row weeklyForecast">';
-
-    days.forEach(function (day) {
-        forecastHTML =
-            forecastHTML +
-            `
-              <div class="col-2 daily">
-              <div class="weeklyForecast-date">${day}</div>
-              <img class="wafer-img-native wafer-img-loaded"
-                data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
-                src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png" width="28" height="28"
-                alt="Clear" loading="lazy" id="iconMonday" />
-              <div class="forecast-temp">
-                <span class="degrees max">5°</span> <span class="degrees min">42°</span>
-              </div>
-            </div>
-            `;
-    });
-
-    forecastHTML = forecastHTML + `</div>`;
-    forecastElement.innerHTML = forecastHTML;
-    console.log(forecastHTML);
+    getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -133,4 +152,3 @@ let farenheitLink = document.querySelector('#farenheit-link');
 farenheitLink.addEventListener('click', displayFarenheitTemp);
 
 search('New York');
-displayForecast();

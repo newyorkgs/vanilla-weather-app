@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
   <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+  <script src="https://kit.fontawesome.com/57cf143f06.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="src/style.css" />
 
   <title>vanilla weather app</title>
@@ -66,22 +67,17 @@
               <div class="col-6">
                 <ul class="middle-information middle-descr">
 
-                  <li><img class="wafer-img-native wafer-img-loaded"
-                      data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
-                      src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png" width="15"
-                      height="15" alt="Clear" loading="lazy" id="iconMonday" /><span id="description"></span>
+                  <li><img src="http://openweathermap.org/img/wn/${
+                                forecastDay.weather[0].icon
+                            }@2x.png" alt="" width="20" height="20" id="icon"><span id="description"></span>
                   </li>
                   <li>
-                    <img class="wafer-img-native wafer-img-loaded"
-                      data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
-                      src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png" width="15"
-                      height="15" alt="Clear" loading="lazy" id="iconMonday" />
+                    <img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/mist-day.png" width="25"
+                      height="25">
                     <span id="wind"></span> mph
                   </li>
-                  <li> <img class="wafer-img-native wafer-img-loaded"
-                      data-wf-src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png"
-                      src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png" width="15"
-                      height="15" alt="Clear" loading="lazy" id="iconMonday" /><span id="humidity"></span> %</li>
+                  <li> <img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/shower-rain-day.png" alt=""
+                      width="25" height="25"><span id="humidity"></span> %</li>
                 </ul>
 
 
