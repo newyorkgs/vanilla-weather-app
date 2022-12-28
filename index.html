@@ -32,7 +32,7 @@
                     autocomplete="off" />
                 </div>
                 <div class="col-3">
-                  <input type="submit" value="Search" class="btn btn-primary" />
+                  <input type="submit" value="Search" class="btn btn-primary btn-sm" id="searchButton" />
                 </div>
               </div>
             </form>
@@ -54,7 +54,7 @@
               <div class="col-6">
                 <div class="weather-temperature">
                   <strong id="temperature"></strong><span class="units">
-                    <a href="#" id="farenheit-link" class="active"> °F</a> | <a href="#" id="celsius-link">°C</a></span>
+                    °F</a></span>
                   <ul class="middle-information timeNow">
                     <!--<li class="middle-temp">12°</li>-->
                     <li>Last updated at <span id="currentTime"></span>
@@ -69,15 +69,15 @@
 
                   <li><img src="http://openweathermap.org/img/wn/${
                                 forecastDay.weather[0].icon
-                            }@2x.png" alt="" width="20" height="20" id="icon"><span id="description"></span>
+                            }@2x.png" alt="" width="30" height="30" id="icon"><span id="description"></span>
                   </li>
                   <li>
-                    <img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/mist-day.png" width="25"
-                      height="25">
+                    <img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/mist-day.png" width="30"
+                      height="30">
                     <span id="wind"></span> mph
                   </li>
-                  <li> <img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/shower-rain-day.png" alt=""
-                      width="25" height="25"><span id="humidity"></span> %</li>
+                  <li> <img src="http://openweathermap.org/img/wn/10n@2x.png" alt="" width="35" height="35"><span
+                      id="humidity"></span> %</li>
                 </ul>
 
 

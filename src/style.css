@@ -13,7 +13,7 @@
     height: 33em;
     box-sizing: border-box;
     flex-wrap: wrap;
-
+    background-color: lightgray;
 }
 
 /*nav bar*/
@@ -22,16 +22,17 @@
 /*background img*/
 .background-img {
     /* background: url('thunder.jpg');*/
+    background: url("bostoncity.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 
     height: 80%;
     object-fit: cover;
-    background-color: lightblue;
+
 }
 
 .form-container {
-    background-color: white;
+    background-color: lightgray;
 }
 
 
@@ -44,6 +45,25 @@
 
 #search-form {
     margin: 0;
+}
+
+.btn.fa-home {
+    border-color: black;
+    border: 20px;
+}
+
+.btn.btn-primary {
+    background-color: #E1BEE7;
+    border-color: black;
+    margin: auto;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus,
+.btn.btn-primary:active,
+.btn.btn-primary.active {
+    color: #ffffff;
+    background-color: pink;
 }
 
 #city-input {
@@ -107,7 +127,7 @@
 .middle-information {
     display: inline;
     list-style: none;
-    font-size: 12px;
+    font-size: 20px;
 }
 
 .fa-wind {}
@@ -140,7 +160,7 @@
 /*weekly forecast*/
 .white-weekly {
     text-align: center;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 .weeklyForecast {
