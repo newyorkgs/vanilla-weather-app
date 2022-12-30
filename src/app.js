@@ -130,3 +130,19 @@ let form = document.querySelector('#search-form');
 form.addEventListener('submit', handleSubmit);
 
 search('New York');
+
+/*random quote generator*/
+
+let quote = document.getElementById('#quote');
+let generateBtn = document.getElementById('generateBtn');
+
+let randomQuote = () => {
+    fetch('https://api.quotable.io/random')
+        .then((data) => data.json())
+        .then((item) => {
+            console.log(item.content);
+            quote.innerText = item.content;
+        });
+};
+
+window.addEventListener('load', randomQuote);

@@ -1,5 +1,6 @@
 .container {
     max-height: 530px;
+    font-family: 'Merriweather', serif;
 }
 
 .weather-app-wrap {
@@ -13,7 +14,8 @@
     height: 33em;
     box-sizing: border-box;
     flex-wrap: wrap;
-    background-color: lightgray;
+    background-color: whitesmoke;
+    ;
 }
 
 /*nav bar*/
@@ -22,7 +24,7 @@
 /*background img*/
 .background-img {
     /* background: url('thunder.jpg');*/
-    background: url("bostoncity.jpg");
+    background: url("stormcloud.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -32,7 +34,7 @@
 }
 
 .form-container {
-    background-color: lightgray;
+    background-color: white;
 }
 
 
@@ -50,27 +52,33 @@
 .btn.fa-home {
     border-color: black;
     border: 20px;
+    border-width: 30px;
 }
 
 .btn.btn-primary {
-    background-color: #E1BEE7;
+    background-color: black;
     border-color: black;
-    margin: auto;
+    margin-top: 5px;
+    width: auto;
 }
 
 .btn.btn-primary:hover,
 .btn.btn-primary:focus,
 .btn.btn-primary:active,
 .btn.btn-primary.active {
-    color: #ffffff;
-    background-color: pink;
+    color: darkgray;
+    background-color: black;
 }
 
 #city-input {
     box-sizing: border-box;
-    width: 75%;
+    width: 85%;
     margin-left: 60px;
     margin-right: 60px;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .middle-text {
@@ -82,8 +90,8 @@
 #cityHeader {
     text-align: center;
     margin-top: 20px;
-    font-weight: 600;
-    font-size: 30px;
+    font-weight: 900;
+    font-size: 20px;
 }
 
 #countryHeader {
@@ -120,21 +128,18 @@
 
 .main-temp .units {
     position: relative;
-    font-size: 10px;
-    top: -34px;
+    font-size: 30px;
+    top: -90px;
+    margin-left: 140px;
 }
 
 .middle-information {
     display: inline;
     list-style: none;
-    font-size: 20px;
+    font-size: 15px;
 }
 
-.fa-wind {}
-
 .timeNow {
-
-    line-height: 50px;
     font-size: 10px;
 }
 
@@ -143,18 +148,31 @@
 }
 
 #temperature {
-    font-size: 60px;
+    font-size: 80px;
     font-weight: 300;
     height: 64px;
     width: 64px;
+    text-align: center;
+    margin-left: 45px;
 }
 
 /*quote section*/
+
+.quoteContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .quote {
     text-align: center;
     padding-top: 30px;
     font-weight: 400;
     font-size: 10px;
+}
+
+#generateBtn {
+    padding: .1rem 1rem;
 }
 
 /*weekly forecast*/
@@ -185,8 +203,8 @@
     font-size: 40%;
 }
 
-.weather-temperature .active {
-    color: black;
+.weather-temperature {
+    text-align: center;
 }
 
 a:hover {
